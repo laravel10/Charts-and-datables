@@ -1,0 +1,90 @@
+
+ <!doctype html>
+<html>
+	<head>
+			<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+			<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" rel="stylesheet" type="text/css" rel="stylesheet">
+	</head>
+	<style>
+	label{
+		min-width: 20%;
+	}
+	</style>
+	<body>
+		<h1 class="well">Registration Form</h1>
+		<form id="form" method="POST">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-6 form-group">
+						<label for=""> START DATE :</label>
+						<input type="text" id="date" name="date" class="datepicker" data-date-format="dd-mm-yyyy">
+					</div>
+					<div class="col-sm-6 form-group">
+							<label for="">END DATE :</label>
+							<input type="text" id="date1" name="date1" class="datepicker">
+					</div>
+					<div class="col-sm-6 form-group">
+							<input type="submit" id="submit" name="submit">
+					</div>
+				</div>
+			</div>	
+		</form> 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+		<script>
+ 
+
+		$('#date').datetimepicker({
+	
+    onClose: function(dateText, inst) {
+        var saranteststartDateTime = new Date($('#date').val()).getTime();
+        var sarantestendDateTime = new Date($('#date1').val()).getTime();
+        
+        if (sarantestendDateTime <  saranteststartDateTime)
+            alert('EndTime is lesser then Start Time');
+        
+        var endDateTextBox = $('#date1');
+        if (endDateTextBox.val() != '') {
+            var testStartDate = new Date(dateText);
+            var testEndDate = new Date(endDateTextBox.val());
+            if (testStartDate > testEndDate) {
+                endDateTextBox.val(dateText);
+                alert("End date should be greater than Start date");
+        }
+    }
+        else {
+            //endDateTextBox.val(dateText);
+        }
+    },
+    onSelect: function (selectedDateTime){
+       // var start = $(this).datetimepicker('getDate');
+       // $('#example16_end').datetimepicker('option', 'minDate', new Date(start.getTime()));
+    }
+});
+$('#date1').datetimepicker({
+    onClose: function(dateText, inst) {
+        var startDateTextBox = $('#date');
+        if (startDateTextBox.val() != '') {
+            var testStartDate = new Date(startDateTextBox.val());
+            var testEndDate = new Date('date1');
+            if (testStartDate > testEndDate) {
+                startDateTextBox.val('date');
+                alert("End Date should be greater than Start Date");
+        }
+      }
+        else {
+           // startDateTextBox.val(dateText);
+        }
+    },
+    onSelect: function (selectedDateTime){
+       // var end = $(this).datetimepicker('getDate');
+        //$('#example16_start').datetimepicker('option', 'maxDate', new Date(end.getTime()) );
+    }
+});
+		</script>
+	</body>
+</html>
+ 
+

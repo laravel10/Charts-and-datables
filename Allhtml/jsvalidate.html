@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js validate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css" rel="stylesheet" type="text/css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+<style>
+#rollno{
+    margin-left: 5%
+}    
+#class{
+    margin-left: 5%
+}
+#address2{
+    margin-left: 5%
+}
+#pin{
+    margin-left: 5%
+}
+#city{
+    margin-left: 5%
+}
+#country{
+    margin-left: 5%
+}
+label{
+    min-width: 80px;
+    display: inline-block;
+}
+P{
+    text-align: center;
+}
+</style>
+<body>
+    <form id="validation" action="" method="POST">
+        <div class="container"> 
+            <p>JAVASCRIPT VALIDATION</p>
+            <div class="row">  
+               <div class="col-sm-4">
+                    <label for="">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="col-sm-4">
+                    <label id="rollno" for="">Roll no:</label>
+                    <input type="text" id="rollno" name="rollno">
+                </div>
+                <div class="col-sm-4">
+                    <label id="class" for="">Class Room</label>
+                    <input type="text" id="class" name="class"> 
+                </div>  
+            </div>    
+            <br><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="">address 1:</label>
+                    <input type="text" id="address1" name="address1">
+                </div>
+                <div class="col-sm-4"> 
+                    <label id="address2" for="">address 2:</label>
+                    <input type="text" id="address2" name="address2">
+                </div>
+                <div class="col-sm-4">
+                    <label id="pin" for="">pin code</label>
+                    <input type="text" id="pin" name="pin">  
+                </div> 
+            </div>      
+                <br><br>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label id="" for="">state:</label>
+                        <input type="text" id="state" name="state">
+                    </div>
+                     <div class="col-sm-4">
+                        <label id="city" for="">City:</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                    <div class="col-sm-4">
+                        <label id="country" for="">Country:</label>
+                        <input type="text" id="country" name="country">  
+                    </div> 
+                </div>
+            <br><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">date:</label>
+                    <input id="date" name="date" type="text" class="datepicker" >
+                </div>
+            </div>
+            <br><br>
+            <div class="row">  
+                <div class="col-sm-6">
+                    <label for="">date:</label>
+                    <input id="date1"  name="date1" type="text" class="datepicker" >
+                </div> 
+            </div>
+            <div>
+                <button id="submit" type="submit" value="submit">Submit</button>
+            </div>
+        </div> 
+    </form> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <script>
+    
+    $('.datepicker').datetimepicker({ 
+        minDate:0   
+    });
+
+    $('#validation').validate({
+       rules:{
+           name:{
+            required: true,
+            minlength:3,
+            maxlength:15,
+           },  
+           rollno:{
+            required: true,
+            range: [1, 100],
+           }, 
+           class:{
+            required:true,
+            maxlength:2,
+           },
+           address1:{
+            required:true,
+            maxlength:25,
+           },
+           address2:{
+            required:true,
+            maxlength:25,
+           },
+           pin:{
+            required:true,
+            minlength:6,
+            maxlength:6,  
+           },
+           state:{
+             required:true,
+             maxlength:20,
+           },
+           city:{
+            required:true,
+            maxlength:20,
+           },
+           country:{
+            required:true,
+            maxlength:10,
+           },
+           date:{
+            required:true,
+           },
+           date1:{
+            required:true,
+        
+
+           }    
+       },
+
+       messages:{
+           name:{
+               required:"field is required",
+               minlength:"Atleast 3",
+               maxlength:"maximum 15 characters"
+           },
+           class:{
+                  maxlength:"max two variables"
+           },
+           date1:{
+            
+           },
+           
+
+       }
+    });
+
+    
+    </script>
+
+
+
+</body>
+</html>

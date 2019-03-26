@@ -1,0 +1,843 @@
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js"     >
+      <!--<![endif]-->
+      <!-- START :: Head -->
+      <head>
+        <meta charset="utf-8" />
+        <title>Lash 3PL Admin Portal - Orders Listing</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta name="description" content="List of orders" />
+        <meta name="keywords" content="list, orders, list of orders, order list" />
+                <link rel="canonical" href="https://admin.lash3pl.com/" />
+        <link rel="shortcut icon" href="https://admin.lash3pl.com/favicon.ico" />
+        <!-- START :: Global Plugin Styles -->
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/css/fonts.googleapis.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/simple-line-icons/simple-line-icons.min.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap/css/bootstrap.min.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/uniform/css/uniform.default.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+
+        <!-- END :: Global Plugin Styles -->
+        <!-- START :: Page Specific Plugin CSS -->
+         <style>
+    li.taglist-li {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 5px;
+        background-color: #e5e5e5;
+    }
+    ul.taglist {
+        display: inline-block;
+        padding-leftinput class="checkbox disabled" type="checkbox" 0;
+    }
+    .form-horizontalinput class="checkbox disabled" type="checkbox".radio {
+        vertical-align: bottom;
+    }
+    .mt-radio {
+        cursor:pointer;
+    }
+    #access-table {
+        border: 1px solid #ddd;
+        margin: 5% 0 0 0;
+    }
+    th {
+        width: 20%;
+    }
+    .form-group.col-sm-2 {
+        margin: 10px auto;
+    }
+    .is_invalid {
+        background-color: #d9534f !important;
+    }
+</style>
+        <!-- END :: Page Specific Plugin CSS -->
+        <!-- START :: Page Specific CSS -->
+        	<link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-datepicker/css/datepicker3.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/plugins/select2/select2.css">
+
+        <!-- END :: Page Specific CSS -->
+        <!-- START :: Theme CSS -->
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/css/components.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/global/css/plugins.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/admin/layout/css/layout.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/admin/layout/css/themes/default.css">
+
+        <link media="all" type="text/css" rel="stylesheet" href="https://admin.lash3pl.com/assets/metronic/admin/layout/css/custom.css">
+
+        <!-- END :: Theme CSS -->
+        <!-- Load JS files at bottom to reduce page load time - see footer.blade.php -->
+        <base href="https://admin.lash3pl.com" />
+    </head>
+    <!-- END :: Head -->
+    <!-- START :: Body -->
+    <body class="page-header-fixed page-quick-sidebar-over-content">
+<!-- START :: Header -->
+<div class="page-header navbar navbar-fixed-top">
+	<!-- START :: Header Inner -->
+	<div class="page-header-inner">
+		<!-- START :: Logo -->
+		<div class="page-logo">
+			<a href="https://admin.lash3pl.com"><img src="https://admin.lash3pl.com/assets/images/logo.png" class="logo-image" style="padding-top:3px;" alt="logo"></a>
+		</div>
+		<!-- END :: Logo -->
+		<!-- START :: Responsive Menu Toggler -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"></a>
+		<!-- END :: Responsive Menu Toggler -->
+		<!-- START :: Top Navigation Menu -->
+		<div class="top-menu">
+			<ul class="nav navbar-nav pull-right">
+				<!-- START :: User Login Dropdown -->
+				<li class="dropdown dropdown-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+						<span class="username username-hide-on-mobile">Sharmil Shah</span>
+						<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a href="https://admin.lash3pl.com/account/profile"><i class="icon-user"></i> My Profile </a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="https://admin.lash3pl.com/account/lock"><i class="icon-lock"></i> Lock Screen </a>
+						</li>
+						<li>
+							<a href="https://admin.lash3pl.com/account/logout"><i class="icon-key"></i> Log Out </a>
+						</li>
+					</ul>
+				</li>
+				<!-- END :: User Login Dropdown -->
+			</ul>
+		</div>
+		<!-- END :: Top Navigation Menu -->
+	</div>
+	<!-- END :: Header Inner -->
+</div>
+<!-- END :: Header -->
+<div class="clearfix"></div>
+	<!-- START :: Container -->
+	<div class="page-container">
+		<!-- START :: Sidebar -->
+<div class="page-sidebar-wrapper">
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- START :: Sidebar Menu -->
+        <ul class="page-sidebar-menu " data-auto-scroll="true" data-slide-speed="200">
+            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+            <li class="sidebar-toggler-wrapper" style="margin-bottom: 10px;">
+                <!-- START :: Sidebar Toggler Button -->
+                <div class="sidebar-toggler"></div>
+                <!-- END :: Sidebar Toggler Button -->
+            </li>
+            <li class="start">
+                <a href="https://admin.lash3pl.com">
+                    <i class="icon-home"></i>
+                    <span class="title">Dashboard</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="start">
+                <a href="https://admin.lash3pl.com">
+                    <i class="icon-list"></i>
+                    <span class="title">System Status</span>
+                    <span class="selected"></span>
+                </a>
+                <ul class="sub-menu">
+                     <li >
+                    <a href="https://admin.lash3pl.com/status-page"><i class="icon-eye"></i> Status Page</a>
+               			</li>
+                </ul>
+            </li>
+            <!-- START :: CRM Section -->
+                        <li >
+                <a href="javascript:;">
+                    <i class="icon-list"></i>
+                    <span class="title">Stores</span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li >
+                        <a href="https://admin.lash3pl.com/store"><i class="icon-eye"></i> Stores</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/team"><i class="icon-eye"></i> Zones</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/team-group"><i class="icon-eye"></i> Zone Groups</a>
+                    </li>
+                </ul>
+            </li>
+                        <!-- END :: CRM Section -->
+            <!-- START :: CRM Section -->
+            <li class="active">
+                <a href="javascript:;">
+                    <i class="icon-list"></i>
+                    <span class="title">Delivery</span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">.th { 
+                    <li class="active		text-align: center;">
+                        
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/report/order-density"><i class="icon-eye"></i> Order Density</a>
+                    </li>
+                    <li>
+                        <a href=https://ui-lmd.lash3pl.com/zone-groups/summary target="_blank"><i class="icon-eye"></i> Logistics</a> 
+                    </li>
+                </ul>
+            </li>
+            <!-- END :: CRM Section -->
+            <!-- START :: Driver Section -->
+            <li >
+                <a href="javascript:;">
+                    <i class="icon-list"></i>
+                    <span class="title">Drivers</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+
+                    <li >
+                        <a href="https://admin.lash3pl.com/drivers-availability"><i class="icon-eye"></i> Drivers Availability</a>
+                    </li>
+                                        <li >
+                        <a href="https://admin.lash3pl.com/shifts-planner"><i class="icon-eye"></i> Shifts Planner</a>
+                    </li>   
+                                        <li >
+                        <a href="https://admin.lash3pl.com/driver-shifts"><i class="icon-eye"></i> Driver Shifts</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/drivers-timesheet"><i class="icon-eye"></i> Drivers Timesheet</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/payroll"><i class="icon-eye"></i> Daily Payroll</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/weekly-payroll"><i class="icon-eye"></i> Weekly Payroll</a>
+                    </li>
+                    <li >
+                        <a href="https://admin.lash3pl.com/driversdata"><i class="icon-eye"></i> Driver Order Data</a>
+                    </li> 
+                    <li >
+                        <a href="https://driver-messaging.lash3pl.com//messaging" target="_blank"><i class="icon-eye"></i> Messaging</a>
+                    </li> 
+                    </li>  
+                    <li >
+                        <a href="https://admin.lash3pl.com/resources"><i class="icon-eye"></i> Resources</a>
+                    </li>  
+                </ul>
+            </li>
+			<!-- END :: DRIVER Section -->
+			<!-- START :: DISPATCHER Section -->
+			            <li >
+                <a href="javascript:;">
+                    <i class="icon-list"></i>
+                    <span class="title">Dispatchers</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li >
+                        <a href="https://admin.lash3pl.com/dispatcher-shifts"><i class="icon-eye"></i> Dispatcher Shifts</a>
+                    </li> 
+                </ul>
+            </li>
+            			<!-- END :: DISPATCHER Section -->
+			<!-- START :: Report Section -->
+							
+			<li >
+				<a href="javascript:;">
+					<i class="icon-list"></i>
+					<span class="title">Reports</span>
+					<span class="arrow"></span>
+				</a>
+				<ul class="sub-menu">
+				    <li >
+                        <a href="https://admin.lash3pl.com/report/revenue-bi"><i class="icon-eye"></i> Revenue BI</a>                        
+                    </li>
+				    <li >
+                        <a href="https://admin.lash3pl.com/report/open-shifts"><i class="icon-eye"></i> Open Shifts</a>
+                    </li>
+				    <li >
+                        <a href="https://admin.lash3pl.com/report/removed-shifts"><i class="icon-eye"></i> Removed Shifts</a>
+                    </li>
+                    <li >
+                        <a href="javascript:;">
+                            <i class="icon-list"></i>
+                            <span class="title">Trail Log</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li >
+                                <a href="https://admin.lash3pl.com/trail-log/availability"><i class="icon-eye"></i> Availability</a>
+                            </li>
+                            <li >
+                                <a href="https://admin.lash3pl.com/trail-log/availability-archived"><i class="icon-eye"></i> Availability Archive</a>
+                            </li>
+                            <li >
+                                <a href="https://admin.lash3pl.com/trail-log/payroll"><i class="icon-eye"></i> Payroll</a>
+                            </li>
+                        </ul>
+                    </li>
+            </li> 
+        </ul>
+        </li>
+                <!-- END :: Report Section -->
+        <!-- START :: Geo Section -->
+        				
+        <li >
+            <a href="javascript:;">
+                <i class="icon-list"></i>
+                <span class="title">Geographic</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="https://admin.lash3pl.com/country"><i class="icon-eye"></i> Countries</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/state"><i class="icon-eye"></i> States</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/city"><i class="icon-eye"></i> Cities</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/zip"><i class="icon-eye"></i> Zip Codes</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/coordinate"><i class="icon-eye"></i> Coordinates</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/currency"><i class="icon-eye"></i> Currencies</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/timezone"><i class="icon-eye"></i> Time Zones</a>
+                </li>
+            </ul>
+        </li>
+                <!-- END :: Geo Section -->
+        <!-- START :: Status Unit Section -->
+        				
+        <li >
+            <a href="javascript:;">
+                <i class="icon-list"></i>
+                <span class="title">Statuses &amp; Units</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="https://admin.lash3pl.com/dimension-unit"><i class="icon-eye"></i> Dimension Units</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/order-status"><i class="icon-eye"></i> Order Statuses</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/volume-unit"><i class="icon-eye"></i> Volume Units</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/weight-unit"><i class="icon-eye"></i> Weight Units</a>
+                </li>
+                 
+            </ul>
+        </li>
+                <!-- END :: Status Unit Section -->
+        <!-- START :: Setting Section -->
+        				$("#checkAll").click(function(){
+        <li >
+            <a href="jav    $('input:checkbox').not(this).prop('checked', this.checked);
+                <i class});></i>
+                <span class="title">Settings</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+                    <a href="https://admin.lash3pl.com/setting"><i class="icon-eye"></i> General Settings</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/driver-fees"><i class="icon-eye"></i> Driver Fees</a>
+                </li>
+
+                <li >
+
+                    <
+tment"><i class="icon-eye"></i> Auto Adjustments</a>
+                </li>                
+            </ul>
+        </li
+                <!-- END :: Setting Section -->
+        <!-- START :: User Section -->
+        <li >
+            <a href="javascript:;">
+                <i class="icon-list"></i>
+                <span class="title">Users</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li >
+
+                    <
+class="icon-eye"></i> Users</a>
+                </li>
+
+                	
+
+                <li >
+                    <a href="https://admin.lash3pl.com/role"><i class="icon-eye"></i> Roles</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/role-permission"><i class="icon-eye"></i> Role Permissions</a>
+                </li>
+                <li >
+                    <a href="https://admin.lash3pl.com/permission"><i class="icon-eye"></i> Permissions</a>
+                </li>
+                            </ul>
+        </li>
+        <!-- END :: User Section -->
+        </ul>
+        <!-- END :: Sidebar Menu -->
+    </div>
+</div>
+<!-- END :: Sidebar -->
+		<!-- START :: Page -->
+		<div class="page-content-wrapper">
+			<!-- START :: Page Container -->
+			<div class="page-content">
+				<!-- Idher code kar  - Hasnain -->
+				<div class="portlet box blue-madison">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-list"></i>Activate access types for the zone groups
+						</div>
+						<div class="actions">
+							<button id="edit_enable" class="btn green-haze" onclick="">Edit</button>
+						</div>
+					</div>
+					<div class="portlet-body" >
+                        <div class="col-md-12">
+                            <div class="form-horizontal">
+                                <div class="form-group col-sm-2">
+                                    <label class="control-label" for="acceptance">Acceptance: </label>
+                                    <input class="form-control" maxlength="5" type="text" onkeypress="return isNumberDecimalKey(event, this)" id="acceptance">
+                                </div> 
+                                <div class="form-group col-sm-2">
+                                    <label class="control-label" maxlength="5" for="cancellation">Cancellation: </label>
+                                    <input class="form-control" type="text" onkeypress="return isNumberDecimalKey(event, this)" id="cancellation">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label class="control-label" maxlength="5" for="ontime">Ontime: </label>
+                                    <input class="form-control" type="text" onkeypress="return isNumberDecimalKey(event, this)" id="ontime">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label class="control-label" maxlength="5" for="customer">Customer: </label>
+                                    <input class="form-control" type="text" onkeypress="return isNumberDecimalKey(event, this)" id="customer">
+                                </div>
+                                <div class="form-group col-sm-2">
+                                    <label class="control-label" maxlength="5" for="below_acceptance">Below Acceptance: </label>
+                                    <input class="form-control" type="text" onkeypress="return isNumberDecimalKey(event, this)" id="below_acceptance">
+                                </div>
+                            </div>
+                        </div> 
+						<table id="access-table" class="table table-bordered table-hover no-footer text-center" >
+						<thead>
+							<tr>
+								<th></th>
+								<th>All access</th>
+								<th>Newbie</th>
+								<th>No access</th>
+								<th>Early access</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td text-align="right">All groups</td> 
+								<td><input id="ultimate" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="super_newbie" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="super_noaccess" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="super_earlyaccess" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Zone group1</td>
+								<td><input id="master_1" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="newbie_1" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="noaccess_1" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="earlyaccess_1" class="checkbox disabled" type="checkbox" name="name1" />&nbsp; </td>
+							</tr>
+							<tr>
+								<td>Zone group2</td>
+								<td><input id="master_2" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="newbie_2" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="noaccess_2" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+								<td><input id="earlyaccess_2" class="checkbox disabled" type="checkbox" name="name1" />&nbsp;</td>
+							</tr>                          
+						</tbody>
+                        </table>
+                        <div id="form_actions" style="text-align:right;" >
+                            <button id="save" name="save" class="btn green-haze" onclick="">Save</button>
+                            <button id="cancel" name="cancel" class="btn green-haze" onclick="" >Cancel</button>
+                        </div>
+                    </div>
+				</div>
+				<!-- Idher code kar  - Hasnain -->
+			</div>
+			<!-- END :: Page Container -->
+		</div>
+		<!-- END :: Page -->
+	</div>
+	<!-- END :: Container -->
+<!-- START :: Footer -->
+	<div class="page-footer">$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+		<!-- START :: Copyrig$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+		<div class="page-foot$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});">
+			2019 &copy; H-E-B$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});
+		</div>
+		<div class="scroll-to$("#checkAll").click(function(){
+    $('input:checkbox').not(this).prop('checked', this.checked);
+});divCheckAll
+	divCheckAllick(function(){
+   divCheckAlld', this.checked);
+});divCheckAll
+	divCheckAll
+	divCheckAll
+	</div>
+	<!-- END :: Footer -->
+	<!-- START :: Core Plugins -->
+	<!--[if lt IE 9]>
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/respond.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/excanvas.min.js"></script>
+
+	<![endif]-->
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery-1.11.0.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery-migrate-1.2.1.min.js"></script>
+
+	<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery.blockui.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/jquery.cokie.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/uniform/jquery.uniform.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+	<script src="https://admin.lash3pl.com/assets/scripts/driver/browser-notification.js"></script>
+
+	<!-- END :: Core Plugins -->
+                	<!-- START :: Page Level Plugins -->
+		<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/datatables/media/js/jquery.dataTables.min.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootbox/bootbox.min.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/moment.min.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-daterangepicker/moment-timezone-with-data.min.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/plugins/select2/select2.min.js"></script>
+
+	<!-- END :: Page Level Plugins -->
+	<!-- START :: Page Level Scripts -->
+		<script src="https://admin.lash3pl.com/assets/metronic/global/scripts/metronic.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/admin/layout/scripts/layout.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/metronic/global/scripts/datatable.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/general/ui-alert-dialog-api.js"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/order/components-dropdowns.js?1550045170"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/order/components-pickers.js?1550045170"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/order/table-ajax.js?1550045170"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/order/ui-invoice-dialog-api.js?1550045170"></script>
+
+<script src="https://admin.lash3pl.com/assets/scripts/order/ui-update-dialog-api.js?1550045170"></script>
+
+
+	<!-- END :: Page Level Scripts -->
+	<!-- START :: Page Level Script Initialize -->
+		<script>
+	jQuery(document).ready(function () {
+		enableCheckbox(false);
+		Metronic.init(); // init metronic core componets
+		Layout.init(); // init layout
+
+		// jquery code
+        $('#edit_enable').click(function(e){
+            enableCheckbox(true);
+        });	
+
+        // onclick for select all
+        $('#ultimate').click (function(){
+            var ultimate_checkbox = $(this); 
+            $('input.checkbox[id^="super_"]').not(ultimate_checkbox.prop('checked') ? ':checked' : '').trigger('click');
+        });
+
+        // on click for select all checkbox in the row
+         $('input.checkbox[id^="master_"]').change(function (e) {
+            var master_checkbox =($(this));
+            var id = master_checkbox.prop('id').substr(7);
+            $('input.checkbox[id*="'+ id +'"]').not(master_checkbox).not(master_checkbox.prop('checked') ? ':checked' : '').trigger('click');
+        }); 
+
+
+        // on click for all checkbox in the column
+        $('input.checkbox[id^="super_"]').change(function(){
+            var super_checkbox = ($(this));
+            var id = super_checkbox.prop('id').substr(6);
+            $('input.checkbox[id*="'+ id +'"]').not(super_checkbox).not(super_checkbox.prop('checked') ? ':checked' : '').trigger('click');
+        });
+
+       // event listener for all the newbie checkboxes except the master, super and ultimate
+        $('input.checkbox[id*="newbie_"]').change(function(e) {
+            checkSuper('newbie');
+            checkMaster(this, 7);
+            checkUltimate();
+        });
+    
+       // event listener for all the noaccess checkboxes except the master, super and ultimate
+        $('input.checkbox[id*="noaccess_"]').change(function(e) {
+            checkSuper('noaccess');
+            checkMaster(this, 9);
+            checkUltimate();
+        });
+       
+
+       // event listener for all the earlyaccess checkboxes except the master, super and ultimate
+        $('input.checkbox[id*="earlyaccess_"]').change(function(e) {
+            checkSuper('earlyaccess');
+            checkMaster(this, 12);
+            checkUltimate();
+        });
+
+
+    });
+//new
+    function isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    function validateAcceptance(el, val) {
+        let element = $(el);
+        if(isNumber(val))  
+            val = parseInt(val);
+        else {
+            // element.addClass('is_invalid');
+            return false;
+        }
+        if (val > 100 || val < 0) {
+            // element.addClass('is_invalid');
+            return false;
+        } else {
+            // element.removeClass('is_invalid');
+            return true;
+        }
+    }
+
+    function validateCancellation(el, val) {
+        let element = $(el);
+        if(isNumber(val))  
+            val = parseInt(val);
+        else {
+            // element.addClass('is_invalid');
+            return false;
+        }
+        if (val > 100 || val < 0) {
+            // element.addClass('is_invalid');
+            return false;
+        } else {
+            // element.removeClass('is_invalid');
+            return true;
+        }
+    }
+    function validateOntime(el, val) {
+        let element = $(el);
+        if(isNumber(val))  
+            val = parseInt(val);
+        else {
+            // element.addClass('is_invalid');
+            return false;
+        }
+        if (val > 100 || val < 0) {
+            // element.addClass('is_invalid');
+            return false;
+        } else {
+            // element.removeClass('is_invalid');
+            return true;
+        }
+    }
+    function validateCustomer(el, val) {
+        let element = $(el);
+        if(isNumber(val))  
+            val = parseInt(val);
+        else {
+            // element.addClass('is_invalid');
+            return false;
+        }
+        if (val > 100 || val < 0) {
+            // element.addClass('is_invalid');
+            return false;
+        } else {
+            // element.removeClass('is_invalid');
+            return true;
+        }
+    }
+    function validateBelow_Acceptance(el, val) {
+        let element = $(el);
+        if(isNumber(val))  
+            val = parseInt(val);
+        else {
+            // element.addClass('is_invalid');
+            return false;
+        }
+        if (val > 100 || val < 0) {
+            // element.addClass('is_invalid');
+            return false;
+        } else {
+            // element.removeClass('is_invalid');
+            return true;
+        }
+    }
+    
+
+    function isNumberDecimalKey(evt, el) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        let newVal = el.value + String.fromCharCode(charCode);
+        let ret;
+        switch (el.id) {
+            case 'acceptance':
+                ret = validateAcceptance(el, newVal);
+                break;
+            case 'cancellation':
+                ret = validateCancellation(el, newVal);
+                break;
+            case 'ontime':
+                ret = validateOntime(el, newVal);
+                break;
+            case 'customer':
+                ret = validateCustomer(el, newVal);
+                break;
+            case 'below_acceptance':
+                ret = validateBelow_Acceptance(el, newVal);
+                break;
+            default:
+                ret = false;
+        }
+        return ret;
+    }
+
+    function checkSuper(type) {
+        let super_ = $('input[id^="super_' + type + '"]');
+        let flag = true;
+        $('input.checkbox[id*="' + type + '_"]').each(function (e) {
+            if (!$(this).is(super_)){
+                if ($(this).prop('checked') == false) {
+                    flag = false;
+                }
+            }
+        });
+        if (flag) {
+            super_.prop('checked', true);
+            super_.parent('span').addClass('checked');
+        } else {
+            super_.prop('checked', false);
+            super_.parent('span').removeClass('checked');
+        }
+    }
+
+    function checkMaster(el, count) {
+        let master = $('input[id="master_' + $(el).prop('id').substr(count) + '"]'); 
+        let flag_master = true;
+        $('input.checkbox[id*="_'+ $(el).prop('id').substr(count) +'"]').each(function (e) {
+            if (!$(this).is(master)){
+                if ($(this).prop('checked') == false) {
+                    flag_master = false;
+                }
+            }
+        });
+        if (flag_master) {
+            master.prop('checked', true);
+            master.parent('span').addClass('checked');
+        } else {
+            master.prop('checked', false);
+            master.parent('span').removeClass('checked');
+        }
+    }
+
+    function checkUltimate() {
+        let flag_ultimate = false;
+        let ultimate = $('#ultimate');
+        $('input.checkbox[id^="master_"]').each(function (e) {
+            if ($(this).prop('checked') == false) flag_ultimate = true;
+        });  
+        $('input.checkbox[id^="super_"]').each(function (e) {
+            if ($(this).prop('checked') == false) flag_ultimate = true;
+        });  
+        if (flag_ultimate) {
+            ultimate.prop('checked', false);
+            ultimate.parent('span').removeClass('checked');
+        } else {
+            ultimate.prop('checked', true);
+            ultimate.parent('span').addClass('checked');
+        }
+    }
+  
+	function enableCheckbox(bool) {
+		if (bool) {
+			$('input[type="checkbox"]').removeAttr("disabled");
+			$('input[type="checkbox"]').removeClass("disabled");
+            $('#form_actions').removeClass('invisible');
+            $('input[type="text"]').removeAttr("disabled","disabled");
+
+		} else {
+			$('input[type="checkbox"]').attr("disabled", "disabled");
+			$('input[type="checkbox"]').addClass("disabled");
+            $('#form_actions').addClass('invisible');
+            $('input[type="text"]').attr("disabled","disabled");
+		}
+	}
+	
+</script>
+	<!-- END :: Page Level Script Initialize -->
+</body>
+</html>
